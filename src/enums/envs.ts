@@ -1,0 +1,4 @@
+export type EnvVariables =
+  | "STEAM_WEB_API_KEY"
+  | "STEAM_BOT_PROFILE_LINK"
+  |"CHECK_FRIEND_REQUEST_URL";

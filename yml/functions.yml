@@ -1,0 +1,13 @@
+HandleWebhook:
+  handler: src/lambdas/handleTelegramWebhook.handler
+  events:
+    - httpApi:
+        path: /handleWebhook
+        method: POST
+
+GetAllActiveUsers:
+  handler: src/lambdas/getAllActiveUser.handler
+  events:
+    - httpApi:
+        path: /activeUsers
+        method: GET

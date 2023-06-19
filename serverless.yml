@@ -1,0 +1,30 @@
+service: MiawffChainTgBot
+
+frameworkVersion: "3"
+
+plugins:
+  - serverless-esbuild
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  profile: myawff
+  region: us-east-1
+  httpApi:
+    cors:
+      allowedOrigins: ["*"]
+      allowedHeaders: ["*"]
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: "dynamodb:*"
+          Resource: "*"
+  environment:
+    TG_BOT_TOKEN: ${ssm:TG_BOT_TOKEN}
+    STEAM_WEB_API_KEY: ${ssm:STEAM_WEB_API_KEY}
+    STEAM_BOT_PROFILE_LINK: ${ssm:STEAM_BOT_PROFILE_LINK}
+    CHECK_FRIEND_REQUEST_URL: ${ssm:CHECK_FRIEND_REQUEST_URL}
+
+functions: ${file(yml/functions.yml)}
+resources: ${file(yml/resources.yml)}
