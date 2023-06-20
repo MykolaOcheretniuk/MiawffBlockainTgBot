@@ -3,7 +3,10 @@ import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { ConstMessages } from "src/enums/constMessages";
 import { UserStates } from "src/enums/userStates";
 import telegramBot from "src/services/bot";
-import { BACK } from "src/services/keyboards/mainMenuKeyboard";
+import {
+  ADD_BOT_TO_FRIEND_LIST,
+  BACK,
+} from "src/services/keyboards/mainMenuKeyboard";
 import { usersService } from "src/services/usersService";
 import { getEnv } from "src/utils/getEnv";
 
@@ -25,7 +28,7 @@ export const checkFriendRequest = async (chatId: number) => {
       `${ConstMessages.SendFriendRequest} ${getEnv("STEAM_BOT_PROFILE_LINK")}`,
       {
         reply_markup: {
-          keyboard: BACK.menu,
+          keyboard: ADD_BOT_TO_FRIEND_LIST.menu,
         },
       }
     );

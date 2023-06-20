@@ -1,5 +1,9 @@
 import axios from "axios";
-import { SignInModel, UserSignUpModel } from "src/models/user";
+import {
+  SignInModel,
+  UpdateLastMatchCode,
+  UserSignUpModel,
+} from "src/models/user";
 
 const baseUrl = "https://nu1kgj5cbk.execute-api.us-east-1.amazonaws.com";
 
@@ -13,7 +17,10 @@ export const createBlockchainUser = async (signUpModel: UserSignUpModel) => {
   const { data } = await axios.post(`${baseUrl}/sign-up`, signUpModel);
   return data;
 };
-export const checkUserCredentials = async (request: SignInModel) => {
-  const { data } = await axios.post(`${baseUrl}/is-user-cred-valid`, request);
+export const signIn = async (request: SignInModel) => {
+  const { data } = await axios.post(`${baseUrl}/sign-in`, request);
   return data;
+};
+export const updateLastMatchCode = async (request: UpdateLastMatchCode) => {
+  await axios.post(`${baseUrl}/update-last-match-code`, request);
 };

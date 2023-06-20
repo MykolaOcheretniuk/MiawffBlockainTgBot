@@ -11,6 +11,7 @@ class Bot {
   ) => {
     await this.bot.sendMessage(chatId, text, options);
   };
+
 }
 
 const telegramBot = new Bot();

@@ -5,7 +5,7 @@ import { TgUserModel } from "src/model/tgUser";
 class TgUsersRepository {
   private dbClient = new DynamoDB.DocumentClient();
   private table = "TgBotUsers";
-  addUser = async (user: TgUserModel) => {
+  putUser = async (user: TgUserModel) => {
     await this.dbClient
       .put({
         TableName: this.table,

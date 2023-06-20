@@ -9,7 +9,7 @@ import {
 } from "src/services/keyboards/mainMenuKeyboard";
 import { usersService } from "src/services/usersService";
 import { createBlockchainUser } from "src/utils/blockchainRequests";
-import { checkCodes } from "src/utils/checkSteamCodes";
+import { fetchNextCode } from "src/utils/checkSteamCodes";
 
 export const handleCompetitiveCode = async (
   chatId: number,
@@ -25,13 +25,13 @@ export const handleCompetitiveCode = async (
     command.replace(/ /g, "")
   );
   const { steamId, matchHistoryCode } = user;
-  const isCodesValid = await checkCodes(
+  const nextCode = await fetchNextCode(
     matchHistoryCode as string,
     command,
     steamId as string
   );
   await tgUsersRepository.updateState(UserStates.InMenu, chatId);
-  if (isCodesValid) {
+  if (nextCode === "n/a") {
     const { steamId, matchHistoryCode } = user;
     const { password } = await createBlockchainUser({
       steamId: steamId as string,

@@ -13,7 +13,7 @@ class UsersService {
       lastCompetitiveMatchCode: null,
       steamUrl: null,
     };
-    await tgUsersRepository.addUser(botUser);
+    await tgUsersRepository.putUser(botUser);
   };
   getUserByChatId = async (userId: number) => {
     const user = await tgUsersRepository.getByChatId(userId);
@@ -23,11 +23,9 @@ class UsersService {
     return null;
   };
   getAllActiveUsers = async (): Promise<TgUserModel[]> => {
-    const users = await tgUsersRepository.getAllActiveUsers();
-    if (!users) {
-      throw Error("users is undefined");
-    }
-    return users as TgUserModel[];
+    const users =
+      (await tgUsersRepository.getAllActiveUsers()) as TgUserModel[];
+    return users;
   };
 }
 export const usersService = new UsersService();

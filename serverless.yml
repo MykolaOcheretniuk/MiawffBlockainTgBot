@@ -25,6 +25,7 @@ provider:
     STEAM_WEB_API_KEY: ${ssm:STEAM_WEB_API_KEY}
     STEAM_BOT_PROFILE_LINK: ${ssm:STEAM_BOT_PROFILE_LINK}
     CHECK_FRIEND_REQUEST_URL: ${ssm:CHECK_FRIEND_REQUEST_URL}
+    GET_MATCH_STAT_URL: ${ssm:GET_MATCH_STAT_URL}
 
 functions: ${file(yml/functions.yml)}
 resources: ${file(yml/resources.yml)}

@@ -5,9 +5,7 @@ HandleWebhook:
         path: /handleWebhook
         method: POST
 
-GetAllActiveUsers:
-  handler: src/lambdas/getAllActiveUser.handler
+CheckCsGoActivity:
+  handler: src/lambdas/checkCsGoActivity.handler
   events:
-    - httpApi:
-        path: /activeUsers
-        method: GET
+    - schedule: rate(20 minutes)
