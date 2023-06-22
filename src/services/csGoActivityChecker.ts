@@ -1,6 +1,6 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { TgUserModel } from "src/model/tgUser";
-import { CreateBlockRequest } from "src/models/user";
+import { CreateBlockRequest } from "src/model/user";
 import { fetchNextCode } from "src/utils/checkSteamCodes";
 import { getMatchStats } from "src/utils/requestsToSteamService";
 import { SteamDataFields } from "src/enums/steamDataFields";

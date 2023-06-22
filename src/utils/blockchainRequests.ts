@@ -3,7 +3,7 @@ import {
   SignInModel,
   UpdateLastMatchCode,
   UserSignUpModel,
-} from "src/models/user";
+} from "src/model/user";
 
 const baseUrl = "https://nu1kgj5cbk.execute-api.us-east-1.amazonaws.com";
 

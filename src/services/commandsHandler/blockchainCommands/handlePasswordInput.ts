@@ -1,7 +1,7 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { UserStates } from "src/enums/userStates";
 import { TgUserModel } from "src/model/tgUser";
-import { SignInResponse } from "src/models/user";
+import { SignInResponse } from "src/model/user";
 import telegramBot from "src/services/bot";
 import { BACK, CONNECTED_USER } from "src/services/keyboards/mainMenuKeyboard";
 import { usersService } from "src/services/usersService";
