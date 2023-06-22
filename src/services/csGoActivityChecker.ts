@@ -23,10 +23,7 @@ class CsGoActivityChecker {
             SteamDataFields.lastCompetitiveMatchCode,
             code
           );
-          const kills = await getMatchStats(
-            steamId as string,
-            lastCompetitiveMatchCode as string
-          );
+          const kills = await getMatchStats(steamId as string, code);
           await postGameResultSender(userId, kills);
           accumulator.push({ steamId: steamId as string, coins: kills });
         }
