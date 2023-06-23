@@ -3,7 +3,7 @@ import { UserStates } from "src/enums/userStates";
 import { TgUserModel } from "src/model/tgUser";
 import { SignInResponse } from "src/model/user";
 import telegramBot from "src/services/bot";
-import { BACK, CONNECTED_USER } from "src/services/keyboards/mainMenuKeyboard";
+import { BACK, CONNECTED_USER } from "src/services/keyboards/menuKeyboards";
 import { usersService } from "src/services/usersService";
 import { signIn } from "src/utils/blockchainRequests";
 

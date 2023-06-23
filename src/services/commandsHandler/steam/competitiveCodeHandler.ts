@@ -1,7 +1,7 @@
-import { BUTTONS } from "../keyboards/buttons";
-import { help } from "./menuCommands/handleHelp";
-import { backToMenu } from "./steam/handleBackToMenu";
-import { handleCompetitiveCode } from "./steam/handleCompetitiveCode";
+import { BUTTONS } from "../../keyboards/buttons";
+import { backToMenu } from "../menu/menuCommands/handleBackToMenu";
+import { help } from "../menu/menuCommands/handleHelp";
+import { handleCompetitiveCode } from "./steamCommands/handleCompetitiveCode";
 
 export const competitiveCodeHandler = async (
   command: string,

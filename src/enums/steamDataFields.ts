@@ -1,6 +1,7 @@
-export enum SteamDataFields {
+export enum UserDataFields {
   steamId = "steamId",
   matchHistoryCode = "matchHistoryCode",
   lastCompetitiveMatchCode = "lastCompetitiveMatchCode",
-  steamUrl="steamUrl"
+  steamUrl = "steamUrl",
+  currentPaymentInfo = "currentPaymentInfo",
 }

@@ -6,7 +6,7 @@ import telegramBot from "src/services/bot";
 import {
   ADD_BOT_TO_FRIEND_LIST,
   BACK,
-} from "src/services/keyboards/mainMenuKeyboard";
+} from "src/services/keyboards/menuKeyboards";
 import { usersService } from "src/services/usersService";
 import { getEnv } from "src/utils/getEnv";
 

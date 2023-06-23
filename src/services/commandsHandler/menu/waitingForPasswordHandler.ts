@@ -1,6 +1,6 @@
-import { BUTTONS } from "../keyboards/buttons";
-import { handlePasswordInput } from "./blockchainCommands/handlePasswordInput";
-import { backToMenu } from "./steam/handleBackToMenu";
+import { BUTTONS } from "../../keyboards/buttons";
+import { backToMenu } from "./menuCommands/handleBackToMenu";
+import { handlePasswordInput } from "./menuCommands/handlePasswordInput";
 
 export const waitingForPasswordInput = async (
   userMessage: string,

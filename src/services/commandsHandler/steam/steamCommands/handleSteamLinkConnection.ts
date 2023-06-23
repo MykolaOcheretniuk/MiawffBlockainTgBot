@@ -1,12 +1,12 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { ConstMessages } from "src/enums/constMessages";
-import { SteamDataFields } from "src/enums/steamDataFields";
+import { UserDataFields } from "src/enums/steamDataFields";
 import { UserStates } from "src/enums/userStates";
 import telegramBot from "src/services/bot";
 import {
   ADD_BOT_TO_FRIEND_LIST,
   BACK,
-} from "src/services/keyboards/mainMenuKeyboard";
+} from "src/services/keyboards/menuKeyboards";
 import { getEnv } from "src/utils/getEnv";
 import { isSteamConnected } from "src/utils/blockchainRequests";
 import { getIdFromLink } from "src/utils/steamUrlHelpers";
@@ -19,10 +19,10 @@ export const steamLinkConnectionHandler = async (
   if (!steamId) {
     return await telegramBot.sendMessage(chatId, ConstMessages.IncorrectUrl);
   }
-  await tgUsersRepository.updateField(chatId, SteamDataFields.steamId, steamId);
+  await tgUsersRepository.updateField(chatId, UserDataFields.steamId, steamId);
   await tgUsersRepository.updateField(
     chatId,
-    SteamDataFields.steamUrl,
+    UserDataFields.steamUrl,
     userMessage
   );
   const isAlreadyConnected = await isSteamConnected(steamId);

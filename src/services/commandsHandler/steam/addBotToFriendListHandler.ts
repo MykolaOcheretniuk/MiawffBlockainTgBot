@@ -1,8 +1,8 @@
 import { ConstMessages } from "src/enums/constMessages";
-import telegramBot from "../bot";
-import { BUTTONS } from "../keyboards/buttons";
-import { backToMenu } from "./steam/handleBackToMenu";
-import { checkFriendRequest } from "./steam/handleCheckFriendRequest";
+import telegramBot from "../../bot";
+import { BUTTONS } from "../../keyboards/buttons";
+import { backToMenu } from "../menu/menuCommands/handleBackToMenu";
+import { checkFriendRequest } from "./steamCommands/handleCheckFriendRequest";
 
 export const addBotToFriendList = async (
   userMessage: string,

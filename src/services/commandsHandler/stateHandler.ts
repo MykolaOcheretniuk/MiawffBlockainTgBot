@@ -2,14 +2,18 @@ import { Message } from "node-telegram-bot-api";
 import { ConstMessages } from "src/enums/constMessages";
 import { UserStates } from "src/enums/userStates";
 import telegramBot from "../bot";
-import { UNCONNECTED_USER } from "../keyboards/mainMenuKeyboard";
+import { UNCONNECTED_USER } from "../keyboards/menuKeyboards";
 import { usersService } from "../usersService";
-import { addBotToFriendList } from "./addBotToFriendListHandler";
-import { connectHistoryCodeHandler } from "./connectHistoryCodeHandler";
-import { competitiveCodeHandler } from "./competitiveCodeHandler";
-import { handleMenuCommands } from "./menuCommandsHandler";
-import { steamLinkConnection } from "./steamLinkConnectionHandler";
-import { waitingForPasswordInput } from "./waitngForPasswordHandler";
+import { addBotToFriendList } from "./steam/addBotToFriendListHandler";
+import { connectHistoryCodeHandler } from "./steam/connectHistoryCodeHandler";
+import { competitiveCodeHandler } from "./steam/competitiveCodeHandler";
+import { handleMenuCommands } from "./menu/menuCommandsHandler";
+import { steamLinkConnection } from "./steam/steamLinkConnectionHandler";
+import { waitingForPasswordInput } from "./menu/waitingForPasswordHandler";
+import { walletExploring } from "./wallet/walletExploringHandler";
+import { handleReceiverAddressInput } from "./wallet/waitingReceiverAddressInputHandler";
+import { handleAmountInput } from "./wallet/waitingAmountInputHandler";
+import { handleConfirmTransfer } from "./wallet/confirmCoinsTransferHandler";
 class BotCommandHandler {
   handleCommand = async (message: Message) => {
     const { id: chatId } = message.chat;
@@ -42,6 +46,18 @@ class BotCommandHandler {
       }
       case UserStates.WaitingForPasswordInput: {
         return await waitingForPasswordInput(command, chatId);
+      }
+      case UserStates.WalletExploring: {
+        return await walletExploring(command, chatId);
+      }
+      case UserStates.WaitingReceiverAddressInput: {
+        return await handleReceiverAddressInput(command, chatId);
+      }
+      case UserStates.WaitingAmountInput: {
+        return await handleAmountInput(command, chatId);
+      }
+      case UserStates.ConfirmCoinsTransfer: {
+        return await handleConfirmTransfer(command, chatId);
       }
     }
   };

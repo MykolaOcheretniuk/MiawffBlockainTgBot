@@ -3,7 +3,7 @@ import {
   APIGatewayProxyResultV2,
 } from "aws-lambda/trigger/api-gateway-proxy";
 import { Message } from "node-telegram-bot-api";
-import { botCommandHandler } from "src/services/commandsHandler/commandsHandler";
+import { botCommandHandler } from "src/services/commandsHandler/stateHandler";
 
 export const handler = async (
   event: APIGatewayProxyEvent

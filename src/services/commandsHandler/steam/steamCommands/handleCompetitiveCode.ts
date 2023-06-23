@@ -1,12 +1,12 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { ConstMessages } from "src/enums/constMessages";
-import { SteamDataFields } from "src/enums/steamDataFields";
+import { UserDataFields } from "src/enums/steamDataFields";
 import { UserStates } from "src/enums/userStates";
 import telegramBot from "src/services/bot";
 import {
   CONNECTED_USER,
   UNCONNECTED_USER,
-} from "src/services/keyboards/mainMenuKeyboard";
+} from "src/services/keyboards/menuKeyboards";
 import { usersService } from "src/services/usersService";
 import { createBlockchainUser } from "src/utils/blockchainRequests";
 import { fetchNextCode } from "src/utils/checkSteamCodes";
@@ -21,7 +21,7 @@ export const handleCompetitiveCode = async (
   }
   await tgUsersRepository.updateField(
     chatId,
-    SteamDataFields.lastCompetitiveMatchCode,
+    UserDataFields.lastCompetitiveMatchCode,
     command.replace(/ /g, "")
   );
   const { steamId, matchHistoryCode } = user;

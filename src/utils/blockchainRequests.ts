@@ -24,3 +24,12 @@ export const signIn = async (request: SignInModel) => {
 export const updateLastMatchCode = async (request: UpdateLastMatchCode) => {
   await axios.post(`${baseUrl}/update-last-match-code`, request);
 };
+
+export const getWalletBalance = async (walletAddress: string) => {
+  const { data } = await axios.get(`${baseUrl}/get-wallet-balance`, {
+    params: {
+      walletAddress,
+    },
+  });
+  return data;
+};

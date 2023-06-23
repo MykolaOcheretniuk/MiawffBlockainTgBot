@@ -1,6 +1,6 @@
-import { BUTTONS } from "../keyboards/buttons";
-import { backToMenu } from "./steam/handleBackToMenu";
-import { steamLinkConnectionHandler } from "./steam/handleSteamLinkConnection";
+import { BUTTONS } from "../../keyboards/buttons";
+import { backToMenu } from "../menu/menuCommands/handleBackToMenu";
+import { steamLinkConnectionHandler } from "./steamCommands/handleSteamLinkConnection";
 
 export const steamLinkConnection = async (
   userMessage: string,

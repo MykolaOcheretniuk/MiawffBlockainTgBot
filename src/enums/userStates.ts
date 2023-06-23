@@ -6,4 +6,8 @@ export enum UserStates {
   SteamConnectLastCompetitiveMatchCode = "SteamConnectLastCompetitiveMatchCode",
   CheckAllDataAndRegister = "CheckAllDataAndRegister",
   WaitingForPasswordInput = "WaitingForPasswordInput",
+  WalletExploring = "WalletExploring",
+  WaitingReceiverAddressInput = "WaitingReceiverAddressInput",
+  WaitingAmountInput = "WaitingAmountInput",
+  ConfirmCoinsTransfer = "ConfirmCoinsTransfer",
 }

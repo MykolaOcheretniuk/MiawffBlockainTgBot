@@ -1,5 +1,5 @@
 import { DynamoDB } from "aws-sdk";
-import { SteamDataFields } from "src/enums/steamDataFields";
+import { UserDataFields } from "src/enums/steamDataFields";
 import { UserStates } from "src/enums/userStates";
 import { TgUserModel } from "src/model/tgUser";
 class TgUsersRepository {
@@ -52,7 +52,7 @@ class TgUsersRepository {
 
   updateField = async (
     userId: number,
-    field: SteamDataFields,
+    field: UserDataFields,
     value: string
   ) => {
     await this.dbClient

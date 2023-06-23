@@ -1,3 +1,5 @@
+import { CurrentPaymentInfo } from "./payment";
+
 export interface TgUserModel {
   currentState: string;
   userId: number;
@@ -6,4 +8,7 @@ export interface TgUserModel {
   matchHistoryCode: string | null;
   lastCompetitiveMatchCode: string | null;
   steamUrl: string | null;
+  walletPublicKey: string;
+  walletPrivateKey: string;
+  currentPaymentInfo: CurrentPaymentInfo;
 }

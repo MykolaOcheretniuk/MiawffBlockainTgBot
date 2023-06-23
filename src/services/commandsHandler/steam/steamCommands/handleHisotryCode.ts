@@ -1,9 +1,9 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { ConstMessages } from "src/enums/constMessages";
-import { SteamDataFields } from "src/enums/steamDataFields";
+import { UserDataFields } from "src/enums/steamDataFields";
 import { UserStates } from "src/enums/userStates";
 import telegramBot from "src/services/bot";
-import { BACK } from "src/services/keyboards/mainMenuKeyboard";
+import { BACK } from "src/services/keyboards/menuKeyboards";
 
 export const handleHistoryCode = async (
   chatId: number,
@@ -15,7 +15,7 @@ export const handleHistoryCode = async (
   );
   await tgUsersRepository.updateField(
     chatId,
-    SteamDataFields.matchHistoryCode,
+    UserDataFields.matchHistoryCode,
     userMessage.replace(/ /g, "")
   );
   return await telegramBot.sendMessage(

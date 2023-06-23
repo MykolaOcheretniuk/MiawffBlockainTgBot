@@ -1,9 +1,11 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { UserStates } from "src/enums/userStates";
 import { TgUserModel } from "src/model/tgUser";
+import { genWalletKeys } from "src/utils/ellipticFunctions";
 
 class UsersService {
   createUser = async (chatId: number) => {
+    const { publicKey, privateKey } = genWalletKeys();
     const botUser: TgUserModel = {
       currentState: UserStates.InMenu,
       userId: chatId,
@@ -12,6 +14,12 @@ class UsersService {
       matchHistoryCode: null,
       lastCompetitiveMatchCode: null,
       steamUrl: null,
+      walletPublicKey: publicKey,
+      walletPrivateKey: privateKey,
+      currentPaymentInfo: {
+        amount: null,
+        toAddress: null,
+      },
     };
     await tgUsersRepository.putUser(botUser);
   };

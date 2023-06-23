@@ -1,7 +1,7 @@
-import { BUTTONS } from "../keyboards/buttons";
-import { help } from "./menuCommands/handleHelp";
-import { backToMenu } from "./steam/handleBackToMenu";
-import { handleHistoryCode } from "./steam/handleHisotryCode";
+import { BUTTONS } from "../../keyboards/buttons";
+import { backToMenu } from "../menu/menuCommands/handleBackToMenu";
+import { help } from "../menu/menuCommands/handleHelp";
+import { handleHistoryCode } from "./steamCommands/handleHisotryCode";
 
 export const connectHistoryCodeHandler = async (
   userMessage: string,

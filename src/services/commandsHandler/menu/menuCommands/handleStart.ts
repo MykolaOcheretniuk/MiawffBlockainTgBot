@@ -2,9 +2,9 @@ import { ConstMessages } from "src/enums/constMessages";
 import {
   CONNECTED_USER,
   UNCONNECTED_USER,
-} from "src/services/keyboards/mainMenuKeyboard";
-import telegramBot from "../../bot";
-import { usersService } from "../../usersService";
+} from "src/services/keyboards/menuKeyboards";
+import telegramBot from "../../../bot";
+import { usersService } from "../../../usersService";
 
 export const handleStart = async (chatId: number) => {
   const existingUser = await usersService.getUserByChatId(chatId);

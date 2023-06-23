@@ -15,9 +15,11 @@ export interface SignInResponse {
   latestMatchCode: string;
 }
 
-export interface CreateBlockRequest {
-  steamId: string;
-  coins: number;
+export interface CreateTransactionRequest {
+  fromAddress: string | null;
+  toAddress: string;
+  privateKey: string;
+  amount: number;
 }
 export interface UpdateLastMatchCode {
   steamId: string;

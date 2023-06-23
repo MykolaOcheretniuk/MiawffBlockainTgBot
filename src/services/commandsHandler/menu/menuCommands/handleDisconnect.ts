@@ -1,7 +1,7 @@
 import { tgUsersRepository } from "src/db/tgUsersRepository";
 import { TgUserModel } from "src/model/tgUser";
 import telegramBot from "src/services/bot";
-import { UNCONNECTED_USER } from "src/services/keyboards/mainMenuKeyboard";
+import { UNCONNECTED_USER } from "src/services/keyboards/menuKeyboards";
 import { usersService } from "src/services/usersService";
 import { updateLastMatchCode } from "src/utils/blockchainRequests";
 
