@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Transaction } from "src/model/payment";
 import {
   SignInModel,
   UpdateLastMatchCode,
@@ -32,4 +33,9 @@ export const getWalletBalance = async (walletAddress: string) => {
     },
   });
   return data;
+};
+export const addTransactions = async (transactions: Transaction[]) => {
+  await axios.post(`${baseUrl}/add-transactions`, {
+    transactions: transactions,
+  });
 };

@@ -3,12 +3,10 @@ import { UserStates } from "src/enums/userStates";
 import { TgUserModel } from "src/model/tgUser";
 import { CreateTransactionRequest } from "src/model/user";
 import telegramBot from "src/services/bot";
-import {
-  CONFIRM_PAYMENT,
-  WALLET_EXPLORING,
-} from "src/services/keyboards/menuKeyboards";
+import { WALLET_EXPLORING } from "src/services/keyboards/menuKeyboards";
 import { transactionsService } from "src/services/transactionsService";
 import { usersService } from "src/services/usersService";
+import { addTransactions } from "src/utils/blockchainRequests";
 
 export const confirmPayment = async (chatId: number) => {
   const { currentPaymentInfo, walletPrivateKey, walletPublicKey } =
@@ -23,13 +21,11 @@ export const confirmPayment = async (chatId: number) => {
     amount: amount,
   };
   const transaction = transactionsService.createTransaction(request);
-  return await telegramBot.sendMessage(
-    chatId,
-    `${JSON.stringify(transaction)}`,
-    {
-      reply_markup: {
-        keyboard: CONFIRM_PAYMENT.menu,
-      },
-    }
-  );
+  await addTransactions([transaction]);
+  await tgUsersRepository.updateState(UserStates.WalletExploring, chatId);
+  return await telegramBot.sendMessage(chatId, `Transaction created`, {
+    reply_markup: {
+      keyboard: WALLET_EXPLORING.menu,
+    },
+  });
 };

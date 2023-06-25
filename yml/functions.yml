@@ -9,3 +9,10 @@ CheckCsGoActivity:
   handler: src/lambdas/checkCsGoActivity.handler
   events:
     - schedule: rate(20 minutes)
+
+ReceivedPaymentAlert:
+  handler: src/lambdas/receivedPaymentsAlert.handler
+  events:
+    - httpApi:
+        path: /receivedPaymentAlerts
+        method: POST

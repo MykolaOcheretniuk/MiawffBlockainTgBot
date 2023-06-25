@@ -3,7 +3,6 @@ import { TgUserModel } from "src/model/tgUser";
 import { fetchNextCode } from "src/utils/checkSteamCodes";
 import { getMatchStats } from "src/utils/requestsToSteamService";
 import { UserDataFields } from "src/enums/steamDataFields";
-import { postGameResultSender } from "src/utils/postGameResultSender";
 import { CreateTransactionRequest } from "src/model/user";
 class CsGoActivityChecker {
   processActiveUsers = async (users: TgUserModel[]) => {
@@ -30,7 +29,6 @@ class CsGoActivityChecker {
             code
           );
           const kills = await getMatchStats(steamId as string, code);
-          await postGameResultSender(userId, kills);
           accumulator.push({
             toAddress: walletPublicKey,
             amount: kills,

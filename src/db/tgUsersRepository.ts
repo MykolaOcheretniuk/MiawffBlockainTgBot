@@ -101,6 +101,18 @@ class TgUsersRepository {
       })
       .promise();
   };
+  getUserByWallet = async (walletAddress: string) => {
+    const scanResult = await this.dbClient
+      .scan({
+        TableName: this.table,
+        FilterExpression: "walletPublicKey = :walletPublicKey",
+        ExpressionAttributeValues: {
+          ":walletPublicKey": walletAddress,
+        },
+      })
+      .promise();
+    return scanResult.Items;
+  };
 }
 
 export const tgUsersRepository = new TgUsersRepository();

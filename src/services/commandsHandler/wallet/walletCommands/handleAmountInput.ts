@@ -40,9 +40,7 @@ export const amountInput = async (chatId: number, message: string) => {
   );
   return await telegramBot.sendMessage(
     chatId,
-    `Check your input and complete transfer \n
-     Amount: ${message} coins
-     To: ${toAddress}`,
+    `Check your input and complete transfer \nAmount: ${message} coins\nTo: ${toAddress}`,
     {
       reply_markup: {
         keyboard: CONFIRM_PAYMENT.menu,
